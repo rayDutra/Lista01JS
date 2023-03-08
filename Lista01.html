@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //Exercicio 01
+
+        let vet1 = [10, 21, 31, 40];
+        const somar = (vet) => {
+            let soma = 0;
+            for (let i = 0; i < vet.length; i++) soma += vet[i];
+            return soma;
+        }
+        console.log(somar(vet1));
+
+        //Exercicio 02
+        //a) A média aritmética simples das idades
+        const media = vet => somar(vet) / vet.length;
+        console.log(media(vet1));
+
+        //b) A maior idade
+        const maiorId = vet => {
+            let maior = 0;
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] > maior)
+                    maior = vet[i];
+            }
+            return maior;
+        }
+        console.log(maiorId(vet1));
+
+        //c) As idades ímpares
+        const imparId = vet => {
+            let impares = [];
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] % 2 !== 0) {
+                    impares.push(vet[i]);
+                }
+            }
+            return impares;
+        };
+        console.log(imparId(vet1));
+
+        //d) Verificar se todos são maiores de idade (idade >= 18); Retorno: true ou false
+        const maiorDeIdade = vet => {
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] < 18) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        console.log(maiorDeIdade(vet1));
+
+        //e) Verificar se todas as idades são maiores ou iguais a um valor informado pelo usuário
+        let valor = prompt("Digite um valor:");
+        const MaioresOuIguais = (vet, valor) => {
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] < valor) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        console.log(MaioresOuIguais(vet1, valor));
+
+        //f)Exibir todas as idades maiores ou iguais a determinada idade
+        let idade = parseInt(prompt("Digite uma idade:"));
+        const IdadesMaioresOuIguais = (vet, idade) => {
+            let maiores = [];
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] >= idade) {
+                    maiores.push(vet[i]);
+                }
+            }
+            return maiores;
+        };
+        let maioresOuIguais = IdadesMaioresOuIguais(vet1, idade);
+        console.log(maioresOuIguais);
+
+        //g)A média das idades das pessoas com idades maiores ou iguais a determinada idade
+        const mediaIdades = (vet, idade, maiores) => {
+            let soma = 0;
+            for (let i = 0; i < maiores.length; i++) {
+                soma += maiores[i];
+            }
+            const media = soma / maiores.length;
+            console.log(media);
+            return media;
+        }
+        mediaIdades(vet1, idade, maioresOuIguais);
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
